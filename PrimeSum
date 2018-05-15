@@ -1,0 +1,33 @@
+#include<stdio.h>
+//求素数和 
+int isPrime(int x,int knownPrimes[],int numberOfKnownPrimes){
+	int ret = 1;
+	int i;
+	for( i=0; i<numberOfKnownPrimes; i++){
+		if(x % knownPrimes[i] == 0){
+			ret = 0;
+			break;
+		}
+	}
+	return ret;
+	
+}
+int main(){
+	 const int number = 200;
+	 int prime[number]={2};
+	 int count = 1;
+	 int i = 3;
+	 int sum = 0;
+	 int n,m; 
+	 while(count<number){
+		if(isPrime(i,prime,count)){
+	 		prime[count++] = i;
+		 }
+		 i++;
+	 }
+	 scanf("%d%d",&n,&m);
+	 for( i=n-1; i<m; i++){
+	 	sum = sum + prime[i];
+	 }
+	 printf("%d",sum);
+}
